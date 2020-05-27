@@ -7,6 +7,9 @@ import './ContactList.css'
 class ContactList extends React.Component {
 
     render (){
+        const{MessageFolder,currentContactData}=this.props;
+
+        // console.log(MessageFolder)
         return (
             <div  className="contact-block">
                 <div className="search-block">
@@ -21,18 +24,35 @@ class ContactList extends React.Component {
 
                     />
 
-
-
                 </div>
 
                 <div className="contact-list">
-                    <p>Chats</p>
+                    <p id="chats">Chats</p>
 
                     <div className="list">
-                        <div className="contact-profile">
 
 
-                        </div>
+                        {MessageFolder.map((item)=>{
+                            return (<div className="contact-profile" key={item.id} onClick={()=>{currentContactData(item)}}>
+                                <div className="logo">
+                                    <img src={item.img} alt={item.name}/>
+                                    <span className="checked-icon" > </span>
+                                </div>
+                                <div  className= 'profile-text-block'  >
+                                    <p className='contact-name'>{item.name} </p>
+                                    <p className='last-message'>{ item.message.reverse()[0].text}</p>
+
+                                </div>
+                                <div className='last-message-date'>
+                                    12 .02 22
+
+                                </div>
+
+
+                            </div>)
+                        }) }
+
+
 
 
 
