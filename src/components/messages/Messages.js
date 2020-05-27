@@ -2,12 +2,11 @@ import React from 'react';
 
 
 
-class Search extends React.Component {
-
+class Messages extends React.Component {
 
     render (){
         return (
-            <div >
+            <div   >
 
             </div>
         )
@@ -19,4 +18,4 @@ class Search extends React.Component {
 
 }
 
-export default Search;
+export default Messages;
