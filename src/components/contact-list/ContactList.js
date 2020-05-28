@@ -5,11 +5,18 @@ import './ContactList.css'
 
 
 class ContactList extends React.Component {
+      constructor() {
+          super();
+      }
+
+    searchData=(e)=>{
+        this.props.filter(e.target.value)
+    }
 
     render (){
         const{MessageFolder,currentContactData}=this.props;
 
-        // console.log(MessageFolder)
+
         return (
             <div  className="contact-block">
                 <div className="search-block">
@@ -18,9 +25,12 @@ class ContactList extends React.Component {
                         <span className="checked-icon" > </span>
                     </div>
                     <label htmlFor="contact-search"> </label>
+
                     <input type="text"
                        id="contact-search"
                        placeholder= " search or start new chart"
+                       onChange={this.searchData}
+
 
                     />
 

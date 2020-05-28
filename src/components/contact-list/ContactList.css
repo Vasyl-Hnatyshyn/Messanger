@@ -23,6 +23,7 @@
     font-size: 18px;
     border: 2px solid grey;
 }
+
 #contact-search:hover,
 #contact-search:focus{
 outline: none;
@@ -60,6 +61,7 @@ background-color: white;
     align-items: center;
     justify-content: space-around;
     }
+
 .contact-profile:hover{
     cursor: pointer;
 }
@@ -88,6 +90,8 @@ background-color: white;
     font-size: 15px;
     color: #4d4c4cd1;
     margin:2px 0 0 0 ;
+    max-height: 20px;
+    overflow: hidden;
 
 }
 

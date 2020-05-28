@@ -10,6 +10,7 @@
     justify-content: start;
     align-items: center;
     padding:13px 0 17px 17px;
+    height: 11vh;
 
 
     border-bottom: 1px solid grey;
@@ -31,12 +32,14 @@
     display: flex;
     flex-direction: column;
     padding: 12px;
+    height: 76vh;
+    overflow-y: scroll;
 
 
 }
 .my-message-wrapper{
     width: 100%;
-    background-color:yellow ;
+
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -46,14 +49,15 @@
 
 
 .my-message{
-    border-radius: 20px;
-    font-size: 16px;
+    border-radius: 30px;
+    font-size: 17px;
     background-color: darkgrey;
-    padding: 10px 20px;
+    padding: 16px 20px;
+    max-width: 60%;
 }
 
 .contact-message-wrapper{
-    background-color:green ;
+
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -63,12 +67,48 @@
 }
 
 .contact-message{
-    border-radius: 20px;
-    font-size: 16px;
+    border-radius: 30px;
+    font-size: 17px;
     background-color: black;
-    padding: 10px 20px;
+    padding: 16px 20px;
     color:white;
     margin-left: 12px;
-
+    max-width: 60%;
 
 }
+
+                           /*new message block*/
+
+.new-message-block{
+    border-top: 1px solid grey;
+    background-color: #f8f9fe;
+    height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+#new-message{
+
+    width: 90%;
+    min-height: 50px;
+    font-size: 18px;
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 2px solid grey;
+
+}
+
+#new-message:focus,
+#new-message:hover{
+    outline: none;
+}
+
+#send-message{
+
+    position: absolute;
+    right: 72px;
+    top: 44px;
+}
+

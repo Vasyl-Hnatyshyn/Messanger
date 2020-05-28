@@ -6,6 +6,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {changeMessageFolder}  from './store/actions';
 
+
 const mapStateToProps=(state)=> {
 
     return {
@@ -21,53 +22,68 @@ const mapDispatchToProps=(dispatch)=> {
     }
 
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            currentMessage:[]
+            activeContact:[],
+            messageFolder:[]
+
         }
     }
 
-    getAnswerFromChak =()=>{
-
-        fetch("https://api.chucknorris.io/jokes/random").then((res) => res.json())
-            .then((data) => {
-                console.log(data.value)
-            });
+    componentDidMount() {
+        const folder = this.props.MessageFolder
+        this.setState({
+            messageFolder:folder
+        })
     }
 
 
-    currentContactData=(item)=>{
-        this.setState({
-            currentMessage:item
 
-        })
-        console.log(item)
+
+    filter = (input) => {
+
+        let filter = input.toLowerCase();
+        let filterItems = document.querySelectorAll('.contact-profile');
+
+        filterItems.forEach((item) => {
+            if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    };
+
+    currentContactData=(item)=>{
+
+        this.setState({
+            activeContact:item
+          })
     }
 
 
 
     render (){
-
-        const { MessageFolder,changeMessageFolder} = this.props;
-
-
-
-
-        return (
+   const {changeMessageFolder  }= this.props
+      return (
 
 
             <div className="App">
 
                 <ContactList
-                    MessageFolder={MessageFolder}
+                    filter={this.filter}
+                    MessageFolder={this.state.messageFolder}
                     currentContactData={this.currentContactData}
                 />
-                <Messages currentMessage={this.state.currentMessage}/>
+
+                <Messages
+                    activeContact={this.state.activeContact}
+
+                />
 
 
             </div>
