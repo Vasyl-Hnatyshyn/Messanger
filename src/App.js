@@ -29,16 +29,9 @@ class App extends React.Component {
         super(props);
         this.state={
             activeContact:[],
-            messageFolder:[]
+
 
         }
-    }
-
-    componentDidMount() {
-        const folder = this.props.MessageFolder
-        this.setState({
-            messageFolder:folder
-        })
     }
 
 
@@ -68,7 +61,7 @@ class App extends React.Component {
 
 
     render (){
-   const {changeMessageFolder  }= this.props
+   const {changeMessageFolder,MessageFolder  }= this.props
       return (
 
 
@@ -76,7 +69,7 @@ class App extends React.Component {
 
                 <ContactList
                     filter={this.filter}
-                    MessageFolder={this.state.messageFolder}
+                    MessageFolder={MessageFolder}
                     currentContactData={this.currentContactData}
                 />
 

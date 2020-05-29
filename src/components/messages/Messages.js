@@ -66,68 +66,69 @@ class Messages extends React.Component {
         const { activeContact}= this.props;
         return (
             <div  className="chat-block">
-               <div className="current-contact">
-                   <div className="logo">
-                       <img src={activeContact.img} alt={activeContact.name}/>
-                       <span className="checked-icon" > </span>
-                   </div>
-                   <div className="name">  {activeContact.name}  </div>
-               </div>
+
+                { activeContact.message ?  (<div>
+                    <div className="current-contact">
+                        <div className="logo">
+                            <img src={activeContact.img} alt={activeContact.name}/>
+
+                        </div>
+                        <div className="name">  {activeContact.name}  </div>
+                    </div>
 
 
-                <div className="chat">
-                    {activeContact.message ?  (activeContact.message.map(item=>{
-                         return(<div>
-                              {item.author === "you" ? (<div className="my-message-wrapper">
+                    <div className="chat">
+                        {  activeContact.message.map(item=>{
+                            return(<div>
+                                {item.author === "you" ? (<div className="my-message-wrapper">
 
-                                     <p className="my-message">{item.text}</p>
+                                        <p className="my-message">{item.text}</p>
 
-                              </div>):
+                                    </div>):
 
-                                  (<div className="contact-message-wrapper">
-                                      <div className="logo">
-                                          <img src={activeContact.img} alt={activeContact.name}/>
-                                      </div>
+                                    (<div className="contact-message-wrapper">
+                                        <div className="logo">
+                                            <img src={activeContact.img} alt={activeContact.name}/>
+                                        </div>
 
-                                     <p className="contact-message"> {item.text} </p>
+                                        <p className="contact-message"> {item.text} </p>
 
-                                  </div> )}
+                                    </div> )}
 
-                              </div>)
-                              })):(<div> </div>)
+                            </div>)
+                        })
 
                         }</div>
 
 
-               <div className="new-message-block">
+                <div className="new-message-block">
 
-                   <input
-                       type="text"
-                       id="new-message"
-                       value={this.state.newUserMessage}
-                       onChange={this.newMessageToState}
-                       placeholder="Type your message"
-                   />
-                   <button
-                    id="send-message"
-                    onClick={this.sendNewMessage}>
-                        send
-                   </button>
-
-
-               </div>
+                <input
+                type="text"
+                id="new-message"
+                value={this.state.newUserMessage}
+                onChange={this.newMessageToState}
+                placeholder="Type your message"
+                />
+                <button
+                id="send-message"
+                onClick={this.sendNewMessage}>
+                <i className="material-icons" id="send-button">send</i>
+                </button>
 
 
+                </div>
 
+                    </div>):
 
+                    (<div className='select-message'>  <p>Please select a chat to start messaging...  </p>   </div>)
+            }
 
             </div>
         )
 
 
     }
-
-
 
 }
 

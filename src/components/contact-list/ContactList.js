@@ -22,13 +22,13 @@ class ContactList extends React.Component {
                 <div className="search-block">
                     <div className="logo">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSin-Oq8qcKN7sGLnEkgUpWQWUgCyQmK1Y7HHY5R6Lt-N-PQ-ZO&usqp=CAU" alt=""/>
-                        <span className="checked-icon" > </span>
+
                     </div>
                     <label htmlFor="contact-search"> </label>
 
                     <input type="text"
                        id="contact-search"
-                       placeholder= " search or start new chart"
+                       placeholder= "Search or start new chart"
                        onChange={this.searchData}
 
 

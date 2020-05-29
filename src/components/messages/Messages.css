@@ -1,7 +1,8 @@
-.chat-block{
-    width: 64%;
-    height: 100vh;
 
+
+.chat-block{
+    width: 68%;
+    height: 100vh;
 
 }
 
@@ -94,7 +95,7 @@
     width: 90%;
     min-height: 50px;
     font-size: 18px;
-    padding: 15px 20px;
+    padding: 15px 30px;
     border-radius: 30px;
     border: 2px solid grey;
 
@@ -106,9 +107,138 @@
 }
 
 #send-message{
-
+     border: none;
     position: absolute;
-    right: 72px;
-    top: 44px;
+    right: 7%;
+    top: 35%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+#send-message:focus,
+#send-message:hover{
+ outline: none;
+
 }
 
+#send-button{
+    color:grey;
+    transition: all 0.5s;
+    font-size:36px;
+}
+#send-button:hover{
+    color: #6C6C6C;
+    font-size: 38px;
+    margin-left: 10px;
+
+}
+
+.select-message p{
+    text-align: center;
+    margin: 30% auto;
+    font-size: 18px;
+    color: white;
+    padding: 15px;
+    border-radius: 40px;
+    background-color:black ;
+    font-weight: 600;
+    width: 48%;
+    font-family: cursive;
+    letter-spacing: 1.1px;
+    box-shadow: -1px -1px 42px -14px rgba(179,166,179,1);
+
+}
+
+
+
+
+                      /*responsive styles*/
+
+
+@media only screen and (max-width: 1200px) {
+    .chat-block{
+        width: 65%;
+    }
+
+
+
+    .name {
+        font-size: 21px;
+    }
+
+    /*chat block*/
+
+    .my-message{
+       font-size: 15px;
+        padding: 13px 20px;
+
+    }
+
+      .contact-message{
+        font-size: 15px;
+        padding: 13px 20px;
+
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .chat-block{
+        width: 60%;
+    }
+
+
+
+    .name {
+        font-size: 20px;
+    }
+
+    /*chat block*/
+
+    .my-message{
+        font-size: 14px;
+        padding: 12px 15px;
+        max-width: 80%;
+
+    }
+
+    .contact-message{
+        font-size: 14px;
+        padding: 12px 15px;
+        max-width: 80%;
+
+
+    }
+
+    #new-message{
+
+
+        min-height: 40px;
+        font-size: 16px;
+        padding: 15px 30px;
+
+
+    }
+
+
+    #send-message{
+
+        top: 33%;
+
+    }
+
+    #send-button{
+
+        font-size:30px;
+    }
+    #send-button:hover{
+
+        font-size: 32px;
+
+
+    }
+
+}
+
+@media only screen and (max-width: 576px) {
+
+}

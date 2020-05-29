@@ -4,7 +4,7 @@ const initialState={
     MessageFolder: [
        {
             name: 'Richard ',
-            img: 'https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?size=626&ext=jpg',
+            img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQITiVjtIXfOYwCNvyhWj9d1LtbJbdu9eSg8O_gk1fKpVQTbkx-&usqp=CAU',
             message: [{date: "", text: 'hi there ', id: 1231, author:'Richard ' },
                 {date: "", text: 'hi there ', id: 121, author:'you' },
                 {date: "", text: 'hello ', id: 1123, author:'Richard' },
