@@ -14,14 +14,29 @@
 
 }
 
+.search-wrapper{
+    width: 100%;
+    padding: 0;
+    position: relative;
+    margin: 8% auto 1% auto;
+}
+
+#search-icon {
+    position: absolute;
+    left: 2%;
+    top: 27%;
+    color:#8080809e;
+    font-size: 26px;
+    font-weight: 600;
+}
 #contact-search {
     min-height: 50px;
-    padding: 10px 25px;
-    margin: 7% auto 1% auto;
+    padding-left:40px;
     border-radius: 30px;
     width: 100%;
     font-size: 18px;
-    border: 2px solid grey;
+    border: 2px solid #8080809e;
+    transition: all 0.6s;
 }
 
 #contact-search:hover,
@@ -35,21 +50,17 @@ outline: none;
 #chats{
 font-size: 32px;
 font-weight: 600;
-color:royalblue;
+color:#2f8afa;
 padding: 30px 12px;
 margin: 0;
 background-color: white;
+    letter-spacing: 1px;
 }
 
 
 
                   /*list of contacts*/
-.list {
-    height: 65vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
 
-}
 
 .contact-profile{
     height: 90px;
@@ -60,6 +71,7 @@ background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    transition: all 0.6s;
     }
 
 .contact-profile:hover{
@@ -119,7 +131,7 @@ background-color: white;
 
     #contact-search {
         min-height: 45px;
-        padding: 10px 20px;
+        padding: 0 30px;
 
     }
 
@@ -149,11 +161,15 @@ background-color: white;
 
     #contact-search {
         min-height: 45px;
-        padding: 10px 15px;
+        padding: 10px 30px;
         font-size: 16px;
 
     }
 
+    #search-icon{
+        font-size: 22px;
+
+    }
     /*contact-list block*/
     #chats{
         font-size: 28px;
