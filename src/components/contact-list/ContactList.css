@@ -1,204 +1,169 @@
-.contact-block{
-    width: 32%;
+.contact-block {
+  width: 32%;
 
-    height: 100vh;
-    border-right: 1.5px solid #80808070;
+  height: 100vh;
+  border-right: 1.5px solid #80808070;
 }
 
-                  /*search block*/
+/*search block*/
 .search-block {
-    padding:2% 4%;
-     background-color: #f8f9fe;
-    border-bottom: 1.5px solid #80808070;
-
-
+  padding: 2% 4%;
+  background-color: #f8f9fe;
+  border-bottom: 1.5px solid #80808070;
 }
 
-.search-wrapper{
-    width: 100%;
-    padding: 0;
-    position: relative;
-    margin: 6% auto 1% auto;
+.search-wrapper {
+  width: 100%;
+  padding: 0;
+  position: relative;
+  margin: 6% auto 1% auto;
 }
 
 #search-icon {
-    position: absolute;
-    left: 2%;
-    top: 27%;
-    color:#8080809e;
-    font-size: 26px;
-    font-weight: 600;
+  position: absolute;
+  left: 2%;
+  top: 27%;
+  color: #8080809e;
+  font-size: 26px;
+  font-weight: 600;
 }
 #contact-search {
-    min-height: 50px;
-    padding-left:40px;
-    border-radius: 30px;
-    width: 100%;
-    font-size: 18px;
-    border: 1.5px solid #8080809e;
-    transition: all 0.6s;
+  min-height: 50px;
+  padding-left: 40px;
+  border-radius: 30px;
+  width: 100%;
+  font-size: 18px;
+  border: 1.5px solid #8080809e;
+  transition: all 0.6s;
 }
 
 #contact-search:hover,
-#contact-search:focus{
-outline: none;
+#contact-search:focus {
+  outline: none;
 }
 
-
-
-                 /*contact-list block*/
-#chats{
-font-size: 32px;
-font-weight: 600;
-color:#2f8afa;
-padding: 30px 12px;
-margin: 0;
-background-color: white;
-    letter-spacing: 1px;
+/*contact-list block*/
+#chats {
+  font-size: 32px;
+  font-weight: 600;
+  color: #2f8afa;
+  padding: 30px 12px;
+  margin: 0;
+  background-color: white;
+  letter-spacing: 1px;
 }
 
+/*list of contacts*/
 
-
-                  /*list of contacts*/
-
-
-.contact-profile{
-    height: 90px;
-    width: 100%;
-    background-color: white;
-    border-bottom: 1px solid grey;
-    padding: 2%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    transition: all 0.6s;
-    }
-
-.contact-profile:hover{
-    cursor: pointer;
-    transform: scale(1.04);
-    box-shadow: 0px 0px 8px -2px rgba(117,117,117,0.84);
-
+.contact-profile {
+  height: 90px;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid grey;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: all 0.6s;
 }
 
+.contact-profile:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+  box-shadow: 0px 0px 8px -2px rgba(117, 117, 117, 0.84);
+}
 
 .profile-text-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 60%;
-    margin-left: 10px;
-    flex-wrap: wrap;
-
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  margin-left: 10px;
+  flex-wrap: wrap;
 }
 
 .contact-name {
-   font-size: 17px;
-    font-weight: 600;
-    color: #313131;
-    margin: 0;
-
+  font-size: 17px;
+  font-weight: 600;
+  color: #313131;
+  margin: 0;
 }
 
 .last-message {
-    font-size: 15px;
-    color: #4d4c4cd1;
-    margin:2px 0 0 0 ;
-    max-height: 20px;
-    overflow: hidden;
-
+  font-size: 15px;
+  color: #4d4c4cd1;
+  margin: 2px 0 0 0;
+  max-height: 20px;
+  overflow: hidden;
 }
 
 .last-message-date {
-    display:flex;
-    justify-content: center;
-    align-items: start;
-    height: 65%;
-    font-size: 14.5px;
-    color: #313131;
-    flex-wrap: nowrap;
-    width: 19%;
-
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 65%;
+  font-size: 14.5px;
+  color: #313131;
+  flex-wrap: nowrap;
+  width: 19%;
 }
-
 
 @media only screen and (max-width: 1200px) {
-    .contact-block{
-        width: 35%;
-    }
+  .contact-block {
+    width: 35%;
+  }
 
+  #contact-search {
+    min-height: 45px;
+    padding: 0 30px;
+  }
 
-    #contact-search {
-        min-height: 45px;
-        padding: 0 30px;
+  /*contact-list block*/
+  #chats {
+    font-size: 30px;
+    padding: 25px 12px;
+  }
 
-    }
-
-    /*contact-list block*/
-    #chats{
-        font-size: 30px;
-        padding: 25px 12px;
-
-    }
-
-
-
-    .last-message-date {
-        width: 20%;
-        font-size: 13px;
-        padding-top: 2%;
-
-    }
+  .last-message-date {
+    width: 20%;
+    font-size: 13px;
+    padding-top: 2%;
+  }
 }
 
-
 @media only screen and (max-width: 920px) {
-    .contact-block{
-        width: 40%;
-    }
+  .contact-block {
+    width: 40%;
+  }
 
+  #contact-search {
+    min-height: 45px;
+    padding: 10px 30px;
+    font-size: 16px;
+  }
 
-    #contact-search {
-        min-height: 45px;
-        padding: 10px 30px;
-        font-size: 16px;
+  #search-icon {
+    font-size: 22px;
+  }
+  /*contact-list block*/
+  #chats {
+    font-size: 28px;
+    padding: 22px 12px;
+  }
 
-    }
+  .last-message-date {
+    width: 25%;
+    font-size: 11px;
+    padding-top: 3%;
+  }
+  .profile-text-block {
+    width: 50%;
+  }
+  .contact-name {
+    font-size: 16px;
+  }
 
-    #search-icon{
-        font-size: 22px;
-
-    }
-    /*contact-list block*/
-    #chats{
-        font-size: 28px;
-        padding: 22px 12px;
-
-    }
-
-
-
-    .last-message-date {
-        width: 25%;
-        font-size: 11px;
-        padding-top: 3%;
-
-    }
-    .profile-text-block {
-
-        width: 50%;
-
-    }
-    .contact-name {
-        font-size: 16px;
-
-
-    }
-
-    .last-message {
-        font-size: 14px;
-
-
-    }
+  .last-message {
+    font-size: 14px;
+  }
 }
