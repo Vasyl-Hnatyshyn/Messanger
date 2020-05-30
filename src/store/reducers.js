@@ -4,7 +4,7 @@ import {
   ACTION_CHANGE_ANSWER_FROM_CHAK,
   ACTION_CHANGE_NEW_MESSAGE,
   ACTION_CHANGE_TEXT_NEW_MESSAGE,
-} from '../index';
+} from '../store/actionType';
 
 const initialState = {
   MessageFolder: [
