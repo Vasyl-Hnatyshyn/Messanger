@@ -1,12 +1,33 @@
 import React from 'react';
 import './ContactList.css';
 import { Scrollbars } from 'react-custom-scrollbars';
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+import {changeActiveContact}  from '../../store/actions';
 
+
+const mapStateToProps=(state)=> {
+
+    return {
+        MessageFolder:  state.MessageFolder,
+
+    }
+}
+
+const mapDispatchToProps=(dispatch)=> {
+
+    return {
+
+        changeActiveContact: bindActionCreators(changeActiveContact,dispatch),
+
+    }
+
+}
 
 
 
 class ContactList extends React.Component {
-      
+
 
     filter = (e) => {
          let input =  e.target.value;
@@ -136,4 +157,4 @@ class ContactList extends React.Component {
 
     }
 
-    export default ContactList;
+    export default connect(mapStateToProps,mapDispatchToProps)(ContactList) ;

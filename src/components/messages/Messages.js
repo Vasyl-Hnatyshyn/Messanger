@@ -1,22 +1,36 @@
 import React from 'react';
 import  './Messages.css';
 import { Scrollbars } from 'react-custom-scrollbars';
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+import {changeAnswerFromChak,changeNewMessage,changeNewMessageText}  from '../../store/actions';
 
 
+const mapStateToProps=(state)=> {
 
+    return {
 
-class Messages extends React.Component {
-    constructor() {
-        super();
-        this.state={
-            newUserMessage:"",
-            messageBlock:[],
+        ActiveContact: state.ActiveContact,
+        AnswerFromChak: state.AnswerFromChak,
+        newMessage: state.newMessage,
+        NewMessageText: state.NewMessageText
+    }
+}
 
+const mapDispatchToProps=(dispatch)=> {
 
+    return {
 
-        }
+        changeAnswerFromChak: bindActionCreators(changeAnswerFromChak,dispatch),
+        changeNewMessage: bindActionCreators(changeNewMessage,dispatch),
+        changeNewMessageText: bindActionCreators(changeNewMessageText,dispatch)
+
     }
 
+}
+
+class Messages extends React.Component {
+    
     componentDidMount() {
         this.getAnswerFromChak()
     }
@@ -28,11 +42,9 @@ class Messages extends React.Component {
         let ident =+`${Math.floor(Math.random() * 1000)}`;
         let a = {date: "", text: m,  id: ident, author: "you"}
 
-        this.setState({
-            messageBlock:a,
-            newUserMessage:m
+        this.props.changeNewMessage(a)
 
-        })
+        this.props.changeNewMessageText(m)
 
     }
 
@@ -52,20 +64,16 @@ class Messages extends React.Component {
         sendNewMessage=(e)=>{
             e.preventDefault()
                    this.getAnswerFromChak();
-                 this.props.ActiveContact.message.push(this.state.messageBlock)
+                 this.props.ActiveContact.message.push(this.props.newMessage)
                  this.props.ActiveContact.message.push(this.props.AnswerFromChak)
-
-
-                    this.setState({
-                      newUserMessage:""
-                  })
+                 this.props.changeNewMessageText('')
      }
 
 
 
     render (){
 
-        const { ActiveContact}= this.props;
+        const { ActiveContact,NewMessageText}= this.props;
         return (
             <div  className="chat-block">
 
@@ -130,7 +138,7 @@ class Messages extends React.Component {
                 <input
                 type="text"
                 id="new-message"
-                value={this.state.newUserMessage}
+                value={NewMessageText}
                 onChange={this.newMessageToState}
                 placeholder="Type your message"
                 />
@@ -161,4 +169,4 @@ class Messages extends React.Component {
 
 }
 
-export default Messages;
+export default connect(mapStateToProps,mapDispatchToProps)(Messages);
