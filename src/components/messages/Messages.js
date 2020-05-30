@@ -11,7 +11,7 @@ class Messages extends React.Component {
         this.state={
             newUserMessage:"",
             messageBlock:[],
-            answerFromChak:null,
+
 
 
         }
@@ -22,6 +22,8 @@ class Messages extends React.Component {
     }
 
     newMessageToState=(e)=>{
+
+
         let m= e.target.value;
         let ident =+`${Math.floor(Math.random() * 1000)}`;
         let a = {date: "", text: m,  id: ident, author: "you"}
@@ -39,20 +41,19 @@ class Messages extends React.Component {
         fetch("https://api.chucknorris.io/jokes/random").then((res) => res.json())
             .then((data) => {
                 let ident =+`${Math.floor(Math.random() * 1000)}`;
-                let author= this.props.activeContact.name
+                let author= this.props.ActiveContact.name
                 let message=data.value
                 let a = {date: "", text: message,  id: ident, author: author}
 
-                this.setState({
-                    answerFromChak:a
-                })
+                 this.props.changeAnswerFromChak(a)
             });
     }
 
-        sendNewMessage=()=>{
+        sendNewMessage=(e)=>{
+            e.preventDefault()
                    this.getAnswerFromChak();
-                 this.props.activeContact.message.push(this.state.messageBlock)
-                 this.props.activeContact.message.push(this.state.answerFromChak)
+                 this.props.ActiveContact.message.push(this.state.messageBlock)
+                 this.props.ActiveContact.message.push(this.props.AnswerFromChak)
 
 
                     this.setState({
@@ -64,15 +65,15 @@ class Messages extends React.Component {
 
     render (){
 
-        const { activeContact}= this.props;
+        const { ActiveContact}= this.props;
         return (
             <div  className="chat-block">
 
-                { activeContact.message ?  (<div>
+                { ActiveContact.message ?  (<div>
                     <div className="current-contact">
                         <div className="logo">
                             <div className="logo-img">
-                                <img src={activeContact.img} alt={activeContact.name}/>
+                                <img src={ActiveContact.img} alt={ActiveContact.name}/>
                             </div>
                             <div className="checked-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 512 512" width="20px">
@@ -91,12 +92,12 @@ class Messages extends React.Component {
 
 
                         </div>
-                        <div className="name">  {activeContact.name}  </div>
+                        <div className="name">  {ActiveContact.name}  </div>
                     </div>
 
-                    <Scrollbars style={{ width: '100%', height: '76vh' }}>
+                    <Scrollbars style={{ width: '100%', height: '76vh' } } >
                     <div className="chat">
-                        {  activeContact.message.map(item=>{
+                        {  ActiveContact.message.map(item=>{
                             return(<div>
                                 {item.author === "you" ? (<div className="my-message-wrapper">
 
@@ -107,7 +108,7 @@ class Messages extends React.Component {
                                     (<div className="contact-message-wrapper">
                                         <div className="logo">
                                             <div className="logo-img">
-                                            <img src={activeContact.img} alt={activeContact.name}/>
+                                            <img src={ActiveContact.img} alt={ActiveContact.name}/>
                                             </div>
                                         </div>
 
@@ -123,7 +124,9 @@ class Messages extends React.Component {
                         </Scrollbars>
 
                 <div className="new-message-block">
-                <div id="new-message-wrapper">
+
+
+                    <form id="new-message-wrapper" onSubmit={this.sendNewMessage}>
                 <input
                 type="text"
                 id="new-message"
@@ -131,13 +134,17 @@ class Messages extends React.Component {
                 onChange={this.newMessageToState}
                 placeholder="Type your message"
                 />
+                        <button
+                            id="send-message"
+                            type="submit">
+                        <i className="material-icons" id="send-button">send</i>
+                    </button>
 
-                <button
-                id="send-message"
-                onClick={this.sendNewMessage}>
-                <i className="material-icons" id="send-button">send</i>
-                </button>
-                </div>
+                    </form>
+
+
+
+
 
                 </div>
 

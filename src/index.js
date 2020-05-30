@@ -9,6 +9,8 @@ import {Provider} from 'react-redux';
 import {rootReducer} from './store/reducers'
 
 export  const ACTION_CHANGE_MESSAGEFOLDER = 'ACTION_CHANGE_MESSAGEFOLDER';
+export  const ACTION_CHANGE_ACTIVE_CONTACT = 'ACTION_CHANGE_ACTIVE_CONTACT';
+export  const ACTION_CHANGE_ANSWER_FROM_CHAK = 'ACTION_CHANGE_ANSWER_FROM_CHAK';
 
 
 const store = createStore(rootReducer);

@@ -4,13 +4,15 @@ import ContactList from './components/contact-list/ContactList';
 import Messages from './components/messages/Messages';
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {changeMessageFolder}  from './store/actions';
+import {changeMessageFolder,changeActiveContact,changeAnswerFromChak}  from './store/actions';
 
 
 const mapStateToProps=(state)=> {
 
     return {
-       MessageFolder:  state.MessageFolder
+       MessageFolder:  state.MessageFolder,
+       ActiveContact: state.ActiveContact,
+       AnswerFromChak: state.AnswerFromChak
     }
 }
 
@@ -18,63 +20,32 @@ const mapDispatchToProps=(dispatch)=> {
 
     return {
         changeMessageFolder: bindActionCreators(changeMessageFolder,dispatch),
+        changeActiveContact: bindActionCreators(changeActiveContact,dispatch),
+        changeAnswerFromChak: bindActionCreators(changeAnswerFromChak,dispatch),
+
 
     }
 
 }
 
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            activeContact:[],
+function App (props){
 
-
-        }
-    }
-
-
-
-
-    filter = (input) => {
-
-        let filter = input.toLowerCase();
-        let filterItems = document.querySelectorAll('.contact-profile');
-
-        filterItems.forEach((item) => {
-            if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    };
-
-    currentContactData=(item)=>{
-
-        this.setState({
-            activeContact:item
-          })
-    }
-
-
-
-    render (){
-   const {changeMessageFolder,MessageFolder  }= this.props
+   const {MessageFolder,changeActiveContact,ActiveContact,AnswerFromChak,changeAnswerFromChak  }= props
       return (
 
 
             <div className="App">
 
                 <ContactList
-                    filter={this.filter}
                     MessageFolder={MessageFolder}
-                    currentContactData={this.currentContactData}
+                    changeActiveContact={changeActiveContact}
                 />
 
                 <Messages
-                    activeContact={this.state.activeContact}
+                    ActiveContact={ActiveContact}
+                    AnswerFromChak={AnswerFromChak}
+                    changeAnswerFromChak={changeAnswerFromChak}
 
                 />
 
@@ -83,7 +54,7 @@ class App extends React.Component {
     )
 
 
-    }
+
 
 
 

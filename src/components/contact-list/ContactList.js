@@ -6,16 +6,25 @@ import { Scrollbars } from 'react-custom-scrollbars';
 
 
 class ContactList extends React.Component {
-      constructor() {
-          super();
-      }
+      
 
-    searchData=(e)=>{
-        this.props.filter(e.target.value)
-    }
+    filter = (e) => {
+         let input =  e.target.value;
+        let filter = input.toLowerCase();
+        let filterItems = document.querySelectorAll('.contact-profile');
+
+        filterItems.forEach((item) => {
+            if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    };
+
 
     render (){
-        const{MessageFolder,currentContactData}=this.props;
+        const{MessageFolder,changeActiveContact}=this.props;
 
 
         return (
@@ -49,7 +58,7 @@ class ContactList extends React.Component {
                     <input type="text"
                        id="contact-search"
                        placeholder= "Search or start new chart"
-                       onChange={this.searchData}
+                       onChange={this.filter}
 
                     />
                     </div>
@@ -62,7 +71,7 @@ class ContactList extends React.Component {
 
 
                         {MessageFolder.map((item)=>{
-                            return (<div className="contact-profile" key={item.id} onClick={()=>{currentContactData(item)}}>
+                            return (<div className="contact-profile" key={item.id} onClick={()=>{changeActiveContact(item)}}>
                                 <div className="logo">
                                     <div className="logo-img">
                                     <img src={item.img} alt={item.name}/>

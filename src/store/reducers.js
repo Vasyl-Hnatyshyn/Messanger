@@ -1,4 +1,4 @@
-import {ACTION_CHANGE_MESSAGEFOLDER} from "../index";
+import {ACTION_CHANGE_MESSAGEFOLDER,ACTION_CHANGE_ACTIVE_CONTACT, ACTION_CHANGE_ANSWER_FROM_CHAK} from "../index";
 
 const initialState={
     MessageFolder: [
@@ -67,7 +67,9 @@ const initialState={
 
 
         }
-]
+],
+    ActiveContact:[],
+    AnswerFromChak:null,
 
 };
 
@@ -76,6 +78,15 @@ const initialState={
     switch (action.type) {
         case ACTION_CHANGE_MESSAGEFOLDER:
             return {...state,MessageFolder: action.payload}
+
+        case ACTION_CHANGE_ACTIVE_CONTACT:
+            return {...state,ActiveContact: action.payload}
+
+
+        case ACTION_CHANGE_ANSWER_FROM_CHAK:
+            return {...state,AnswerFromChak: action.payload}
+
+
 
 
     }
