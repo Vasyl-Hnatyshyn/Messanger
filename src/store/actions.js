@@ -21,13 +21,6 @@ export const changeActiveContact = (newActiveContact) => {
   };
 };
 
-export const changeAnswerFromChak = (newAnswerFromChak) => {
-  return {
-    type: ACTION_CHANGE_ANSWER_FROM_CHAK,
-    payload: newAnswerFromChak,
-  };
-};
-
 export const changeNewMessage = (newMessage) => {
   return {
     type: ACTION_CHANGE_NEW_MESSAGE,

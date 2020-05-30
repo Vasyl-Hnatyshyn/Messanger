@@ -1,7 +1,6 @@
 import {
   ACTION_CHANGE_MESSAGEFOLDER,
   ACTION_CHANGE_ACTIVE_CONTACT,
-  ACTION_CHANGE_ANSWER_FROM_CHAK,
   ACTION_CHANGE_NEW_MESSAGE,
   ACTION_CHANGE_TEXT_NEW_MESSAGE,
   ADD_NEW_MESSAGE
@@ -102,7 +101,6 @@ const initialState = {
     },
   ],
   ActiveContact: [],
-  AnswerFromChak: null,
   newMessage: null,
   NewMessageText: '',
 };
@@ -115,9 +113,6 @@ export const rootReducer = (state = initialState, action) => {
     case ACTION_CHANGE_ACTIVE_CONTACT:
       return { ...state, ActiveContact: action.payload };
 
-    case ACTION_CHANGE_ANSWER_FROM_CHAK:
-      return { ...state, AnswerFromChak: action.payload };
-
     case ACTION_CHANGE_NEW_MESSAGE:
       return { ...state, newMessage: action.payload };
 
@@ -128,7 +123,7 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         MessageFolder: state.MessageFolder.map((folder) => (
-            folder.name === action.payload.folder.name
+            folder.name === action.payload.folderName
                 ? { ...folder, message: [...folder.message, action.payload.message ]}
                 : folder
         ))

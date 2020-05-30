@@ -7,14 +7,12 @@ import NewMessageForm from './NewMessageForm/NewMessageForm'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Chat from "./chat/Chat";
-import { changeAnswerFromChak, changeNewMessage, changeNewMessageText,addNewMessage } from '../../store/actions';
+import {  changeNewMessage, changeNewMessageText,addNewMessage } from '../../store/actions';
 
 
 
 class Messages extends React.Component {
-  componentDidMount() {
-    this.getAnswerFromChak();
-  }
+
 
   newMessageToState = (e) => {
     let m = e.target.value;
@@ -36,24 +34,24 @@ class Messages extends React.Component {
         let message = data.value;
         let a = { date: '', text: message, id: ident, author: author };
 
-        this.props.changeAnswerFromChak(a);
+          this.props.addNewMessage( this.props.ActiveContact.name, a);
       });
   };
 
   sendNewMessage = (e) => {
 
-    e.preventDefault();
-    this.getAnswerFromChak();
-      this.props.addNewMessage( e.target.name,this.props.newMessage);
-      this.props.addNewMessage( e.target.name,this.props.AnswerFromChak);
-    this.props.changeNewMessageText('');
+          e.preventDefault();
+          this.props.addNewMessage( this.props.ActiveContact.name, this.props.newMessage);
+          this.getAnswerFromChak();
+          this.props.changeNewMessageText('');
+
   };
 
   render() {
     const { ActiveContact, NewMessageText,addNewMessage} = this.props;
     return (
       <div className="chat-block">
-        {ActiveContact.message ? (
+        {ActiveContact ? (
           <div>
             <div className="current-contact">
               <div className="logo">
@@ -92,7 +90,6 @@ class Messages extends React.Component {
 const mapStateToProps = (state) => ({
 
     ActiveContact: state.MessageFolder.find(({ name }) => name === state.ActiveContact),
-    AnswerFromChak: state.AnswerFromChak,
     newMessage: state.newMessage,
     NewMessageText: state.NewMessageText,
 
@@ -102,11 +99,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 
-    changeAnswerFromChak: bindActionCreators(changeAnswerFromChak, dispatch),
     changeNewMessage: bindActionCreators(changeNewMessage, dispatch),
     changeNewMessageText: bindActionCreators(changeNewMessageText, dispatch),
     addNewMessage: bindActionCreators( addNewMessage, dispatch)
-
 
 });
 

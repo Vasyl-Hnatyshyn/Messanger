@@ -17,7 +17,7 @@ function List (props) {
                         className="contact-profile"
                         key={item.id}
                         onClick={() => {
-                            changeActiveContact(item);
+                            changeActiveContact(item.name);
                         }}
                     >
                         <div className="logo">
@@ -30,7 +30,7 @@ function List (props) {
                         </div>
                         <div className="profile-text-block">
                             <p className="contact-name">{item.name} </p>
-                            <p className="last-message">{item.message.reverse()[0].text}</p>
+                            <p className="last-message">{item.message[0].text}</p>
                         </div>
                         <div className="last-message-date">12 .02 22</div>
                     </div>

@@ -17,7 +17,6 @@ class ContactList extends React.Component {
   }
 
   searchFieldText =(e)=>{
-
     this.setState({
       searchText:e.target.value
           })
