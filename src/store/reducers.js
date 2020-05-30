@@ -128,7 +128,7 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         MessageFolder: state.MessageFolder.map((folder) => (
-            folder.name === action.payload.folderId
+            folder.name === action.payload.folder.name
                 ? { ...folder, message: [...folder.message, action.payload.message ]}
                 : folder
         ))

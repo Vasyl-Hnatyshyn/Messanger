@@ -42,9 +42,9 @@ export const changeNewMessageText = (newMessageText) => {
   };
 };
 
-export const addNewMessage = (folderId, message) => {
+export const addNewMessage = (folderName, message) => {
   return {
     type: ADD_NEW_MESSAGE,
-    payload: { folderId, message },
+    payload: { folderName, message },
   };
 };

@@ -21,6 +21,7 @@ class Messages extends React.Component {
     let ident = +`${Math.floor(Math.random() * 1000)}`;
     let a = { date: '', text: m, id: ident, author: 'you' };
 
+
     this.props.changeNewMessage(a);
 
     this.props.changeNewMessageText(m);
@@ -40,15 +41,16 @@ class Messages extends React.Component {
   };
 
   sendNewMessage = (e) => {
+
     e.preventDefault();
     this.getAnswerFromChak();
-    this.props.ActiveContact.message.push(this.props.newMessage);
-    this.props.ActiveContact.message.push(this.props.AnswerFromChak);
+      this.props.addNewMessage( e.target.name,this.props.newMessage);
+      this.props.addNewMessage( e.target.name,this.props.AnswerFromChak);
     this.props.changeNewMessageText('');
   };
 
   render() {
-    const { ActiveContact, NewMessageText} = this.props;
+    const { ActiveContact, NewMessageText,addNewMessage} = this.props;
     return (
       <div className="chat-block">
         {ActiveContact.message ? (
@@ -72,6 +74,7 @@ class Messages extends React.Component {
                   NewMessageText={NewMessageText}
                   sendNewMessage={this.sendNewMessage}
                   newMessageToState={this.newMessageToState}
+                  addNewMessage={addNewMessage}
               />
 
           </div>
@@ -88,17 +91,22 @@ class Messages extends React.Component {
 
 const mapStateToProps = (state) => ({
 
-    ActiveContact: state.MessageFolder.find(({ id }) => id === state.ActiveContact),
+    ActiveContact: state.MessageFolder.find(({ name }) => name === state.ActiveContact),
     AnswerFromChak: state.AnswerFromChak,
     newMessage: state.newMessage,
-    NewMessageText: state.NewMessageText
+    NewMessageText: state.NewMessageText,
+
+
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
 
     changeAnswerFromChak: bindActionCreators(changeAnswerFromChak, dispatch),
     changeNewMessage: bindActionCreators(changeNewMessage, dispatch),
-    changeNewMessageText: bindActionCreators(changeNewMessageText, dispatch)
+    changeNewMessageText: bindActionCreators(changeNewMessageText, dispatch),
+    addNewMessage: bindActionCreators( addNewMessage, dispatch)
+
 
 });
 
