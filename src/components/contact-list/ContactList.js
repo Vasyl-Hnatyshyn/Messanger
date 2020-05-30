@@ -9,6 +9,12 @@ import { changeActiveContact } from '../../store/actions';
 
 
 class ContactList extends React.Component {
+  constructor() {
+    super();
+    this.state={
+      searchText:''
+    }
+  }
   filter = (e) => {
     let input = e.target.value;
     let filter = input.toLowerCase();
@@ -22,6 +28,14 @@ class ContactList extends React.Component {
       }
     });
   };
+
+  searchFieldText =(e)=>{
+
+    this.setState({
+      searchText:e.target.value
+          })
+  }
+
 
   render() {
     const { MessageFolder, changeActiveContact } = this.props;
@@ -50,7 +64,7 @@ class ContactList extends React.Component {
               type="text"
               id="contact-search"
               placeholder="Search or start new chart"
-              onChange={this.filter}
+              onChange={this.searchFieldText}
             />
           </div>
         </div>
@@ -60,6 +74,7 @@ class ContactList extends React.Component {
 
           <List MessageFolder={MessageFolder}
                 changeActiveContact={changeActiveContact}
+                searchText={this.state.searchText}
           />
 
 

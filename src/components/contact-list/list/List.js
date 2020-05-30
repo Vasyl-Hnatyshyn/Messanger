@@ -4,10 +4,14 @@ import Icon from "../../Icon";
 
 
 function List (props) {
-    const {MessageFolder,changeActiveContact}=props
+    const {MessageFolder,changeActiveContact,searchText}=props
+    const filteredFolders = searchText ?
+        MessageFolder.filter(({ name }) => name.toLowerCase().includes(searchText.toLowerCase()))
+        : MessageFolder;
+
     return(
         <Scrollbars style={{ width: '100%', height: '75vh' }}>
-            {MessageFolder.map((item) => {
+            {filteredFolders.map((item) => {
                 return (
                     <div
                         className="contact-profile"
