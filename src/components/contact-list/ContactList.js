@@ -15,19 +15,6 @@ class ContactList extends React.Component {
       searchText:''
     }
   }
-  filter = (e) => {
-    let input = e.target.value;
-    let filter = input.toLowerCase();
-    let filterItems = document.querySelectorAll('.contact-profile');
-
-    filterItems.forEach((item) => {
-      if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
-        item.style.display = '';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  };
 
   searchFieldText =(e)=>{
 

@@ -4,6 +4,7 @@ import {
   ACTION_CHANGE_ANSWER_FROM_CHAK,
   ACTION_CHANGE_NEW_MESSAGE,
   ACTION_CHANGE_TEXT_NEW_MESSAGE,
+  ADD_NEW_MESSAGE
 } from '../store/actionType';
 
 const initialState = {
@@ -122,6 +123,16 @@ export const rootReducer = (state = initialState, action) => {
 
     case ACTION_CHANGE_TEXT_NEW_MESSAGE:
       return { ...state, NewMessageText: action.payload };
+
+    case ADD_NEW_MESSAGE:
+      return {
+        ...state,
+        MessageFolder: state.MessageFolder.map((folder) => (
+            folder.name === action.payload.folderId
+                ? { ...folder, message: [...folder.message, action.payload.message ]}
+                : folder
+        ))
+      };
   }
   return state;
 };

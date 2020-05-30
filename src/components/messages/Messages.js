@@ -7,7 +7,7 @@ import NewMessageForm from './NewMessageForm/NewMessageForm'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Chat from "./chat/Chat";
-import { changeAnswerFromChak, changeNewMessage, changeNewMessageText } from '../../store/actions';
+import { changeAnswerFromChak, changeNewMessage, changeNewMessageText,addNewMessage } from '../../store/actions';
 
 
 
@@ -88,7 +88,7 @@ class Messages extends React.Component {
 
 const mapStateToProps = (state) => ({
 
-    ActiveContact: state.ActiveContact,
+    ActiveContact: state.MessageFolder.find(({ id }) => id === state.ActiveContact),
     AnswerFromChak: state.AnswerFromChak,
     newMessage: state.newMessage,
     NewMessageText: state.NewMessageText

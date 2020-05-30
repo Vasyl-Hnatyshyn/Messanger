@@ -4,6 +4,7 @@ import {
   ACTION_CHANGE_ANSWER_FROM_CHAK,
   ACTION_CHANGE_NEW_MESSAGE,
   ACTION_CHANGE_TEXT_NEW_MESSAGE,
+  ADD_NEW_MESSAGE
 } from '../store/actionType';
 
 export const changeMessageFolder = (newMessageFolder) => {
@@ -38,5 +39,12 @@ export const changeNewMessageText = (newMessageText) => {
   return {
     type: ACTION_CHANGE_TEXT_NEW_MESSAGE,
     payload: newMessageText,
+  };
+};
+
+export const addNewMessage = (folderId, message) => {
+  return {
+    type: ADD_NEW_MESSAGE,
+    payload: { folderId, message },
   };
 };
