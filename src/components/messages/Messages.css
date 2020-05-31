@@ -34,11 +34,9 @@
   justify-content: flex-end;
   align-items: center;
   min-height: 85px;
-
 }
 
 .my-message {
-
   border-radius: 30px;
   font-size: 17px;
   background-color: darkgrey;
@@ -56,8 +54,6 @@
   align-items: center;
   min-height: 85px;
   position: relative;
-
-
 }
 
 .contact-message {
@@ -70,17 +66,16 @@
   max-width: 60%;
   animation: appear 1.3s ease 0s 1 normal;
   box-shadow: 0 3px 23px 2px rgba(189, 179, 189, 1);
-
 }
-.date-my{
+.date-my {
   right: 15px;
 }
-.date-contact{
- left:90px;
+.date-contact {
+  left: 90px;
 }
 
 .date-my,
-.date-contact{
+.date-contact {
   position: absolute;
   bottom: -5%;
   text-align: center;

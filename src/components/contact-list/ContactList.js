@@ -1,30 +1,27 @@
 import React from 'react';
 import './ContactList.css';
-import Icon from '../Icon'
-import List from './list/List'
+import Icon from '../Icon';
+import List from './list/List';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { changeActiveContact } from '../../store/actions';
 
-
-
 class ContactList extends React.Component {
   constructor() {
     super();
-    this.state={
-      searchText:''
-    }
+    this.state = {
+      searchText: '',
+    };
   }
 
-  searchFieldText =(e)=>{
+  searchFieldText = (e) => {
     this.setState({
-      searchText:e.target.value
-          })
-  }
-
+      searchText: e.target.value,
+    });
+  };
 
   render() {
-    const { MessageFolder, changeActiveContact } = this.props;
+    const { messageFolder, changeActiveContact } = this.props;
 
     return (
       <div className="contact-block">
@@ -37,7 +34,7 @@ class ContactList extends React.Component {
               />
             </div>
             <div className="checked-icon">
-              <Icon/>
+              <Icon />
             </div>
           </div>
 
@@ -58,26 +55,23 @@ class ContactList extends React.Component {
         <div className="contact-list">
           <p id="chats">Chats</p>
 
-          <List MessageFolder={MessageFolder}
-                changeActiveContact={changeActiveContact}
-                searchText={this.state.searchText}
+          <List
+            messageFolder={messageFolder}
+            changeActiveContact={changeActiveContact}
+            searchText={this.state.searchText}
           />
-
-
         </div>
       </div>
     );
   }
 }
 
-
 const mapStateToProps = (state) => ({
-     MessageFolder: state.MessageFolder,
-  });
+  messageFolder: state.messageFolder,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   changeActiveContact: bindActionCreators(changeActiveContact, dispatch),
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

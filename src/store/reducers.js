@@ -3,19 +3,19 @@ import {
   ACTION_CHANGE_ACTIVE_CONTACT,
   ACTION_CHANGE_NEW_MESSAGE,
   ACTION_CHANGE_TEXT_NEW_MESSAGE,
-  ADD_NEW_MESSAGE
+  ADD_NEW_MESSAGE,
 } from '../store/actionType';
 
 const initialState = {
-  MessageFolder: [
+  messageFolder: [
     {
       name: 'Richard ',
       img:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQITiVjtIXfOYwCNvyhWj9d1LtbJbdu9eSg8O_gk1fKpVQTbkx-&usqp=CAU',
       message: [
-        { date:'11/6/20, 4:30', text: 'hi there ', id: 1231, author: 'Richard ' },
-        { date:'12/6/20, 4:40', text: 'hi there ', id: 121, author: 'you' },
-        { date:'12/6/20, 4:55', text: 'hello ', id: 1123, author: 'Richard' },
+        { date: '11/6/20, 4:30', text: 'hi there ', id: 1231, author: 'Richard ' },
+        { date: '12/6/20, 4:40', text: 'hi there ', id: 121, author: 'you' },
+        { date: '12/6/20, 4:55', text: 'hello ', id: 1123, author: 'Richard' },
       ],
     },
     {
@@ -25,7 +25,12 @@ const initialState = {
       message: [
         { date: '11/5/20, 7:40', text: 'hi', id: 12e1, author: 'Jackie Chan ' },
         { date: '11/5/20, 7:40', text: 'hello what did you want ', id: 1e21, author: 'you' },
-        { date: '11/5/20, 7:40', text: 'what time will you be at work ', id: 11233, author: 'Jackie Chan' },
+        {
+          date: '11/5/20, 7:40',
+          text: 'what time will you be at work ',
+          id: 11233,
+          author: 'Jackie Chan',
+        },
       ],
     },
 
@@ -68,7 +73,12 @@ const initialState = {
       img:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQQh4nxO6j2i3Cn6pFLb8Ohx67_wUL4IndFjL2jHcG0cEFCcAYh&usqp=CAU',
       message: [
-        { date: '13/4/2020, 7:40', text: 'Good day. I have  a deal for you ', id: 12881, author: 'Mary ' },
+        {
+          date: '13/4/2020, 7:40',
+          text: 'Good day. I have  a deal for you ',
+          id: 12881,
+          author: 'Mary ',
+        },
         { date: '13/4/2020, 7:40', text: 'can we meet someware ', id: 1e21, author: 'you' },
         {
           date: '13/4/2020, 7:40',
@@ -100,33 +110,33 @@ const initialState = {
       ],
     },
   ],
-  ActiveContact: [],
+  activeContact: [],
   newMessage: null,
-  NewMessageText: '',
+  newMessageText: '',
 };
 
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_CHANGE_MESSAGEFOLDER:
-      return { ...state, MessageFolder: action.payload };
+      return { ...state, messageFolder: action.payload };
 
     case ACTION_CHANGE_ACTIVE_CONTACT:
-      return { ...state, ActiveContact: action.payload };
+      return { ...state, activeContact: action.payload };
 
     case ACTION_CHANGE_NEW_MESSAGE:
       return { ...state, newMessage: action.payload };
 
     case ACTION_CHANGE_TEXT_NEW_MESSAGE:
-      return { ...state, NewMessageText: action.payload };
+      return { ...state, newMessageText: action.payload };
 
     case ADD_NEW_MESSAGE:
       return {
         ...state,
-        MessageFolder: state.MessageFolder.map((folder) => (
-            folder.name === action.payload.folderName
-                ? { ...folder, message: [...folder.message, action.payload.message ]}
-                : folder
-        ))
+        messageFolder: state.messageFolder.map((folder) =>
+          folder.name === action.payload.folderName
+            ? { ...folder, message: [...folder.message, action.payload.message] }
+            : folder
+        ),
       };
   }
   return state;
