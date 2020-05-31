@@ -13,7 +13,9 @@ function Chat (props) {
                         <div>
                             {item.author === 'you' ? (
                                 <div className="my-message-wrapper">
+
                                     <p className="my-message">{item.text}</p>
+                                    <span className="date-my">{item.date}</span>
                                 </div>
                             ) : (
                                 <div className="contact-message-wrapper">
@@ -24,6 +26,8 @@ function Chat (props) {
                                     </div>
 
                                     <p className="contact-message"> {item.text} </p>
+
+                                    <span className="date-contact">{item.date}</span>
                                 </div>
                             )}
                         </div>

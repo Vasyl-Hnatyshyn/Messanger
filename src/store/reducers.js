@@ -13,9 +13,9 @@ const initialState = {
       img:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQITiVjtIXfOYwCNvyhWj9d1LtbJbdu9eSg8O_gk1fKpVQTbkx-&usqp=CAU',
       message: [
-        { date: '', text: 'hi there ', id: 1231, author: 'Richard ' },
-        { date: '', text: 'hi there ', id: 121, author: 'you' },
-        { date: '', text: 'hello ', id: 1123, author: 'Richard' },
+        { date:'12/15/20, 4:30', text: 'hi there ', id: 1231, author: 'Richard ' },
+        { date:'12/15/20, 4:40', text: 'hi there ', id: 121, author: 'you' },
+        { date:'12/15/20, 4:55', text: 'hello ', id: 1123, author: 'Richard' },
       ],
     },
     {
@@ -23,9 +23,9 @@ const initialState = {
       img:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSIbG63feLqNXCa4QHl_TcqjGRv4nfXrPqY-pj_40ve3NZf7P4I&usqp=CAU',
       message: [
-        { date: '', text: 'how are you', id: 12e1, author: 'Jackie Chan ' },
-        { date: '', text: 'asdmkadskmmkdas ', id: 1e21, author: 'you' },
-        { date: '', text: 'damkkmadskm ', id: 11233, author: 'Jackie Chan' },
+        { date: '', text: 'hi', id: 12e1, author: 'Jackie Chan ' },
+        { date: '', text: 'hello what did you want ', id: 1e21, author: 'you' },
+        { date: '', text: 'what time will you be at work ', id: 11233, author: 'Jackie Chan' },
       ],
     },
 
@@ -34,8 +34,8 @@ const initialState = {
       img: 'https://s2.funon.cc/img/orig/201711/02/59fb2e5070eff.jpg',
       message: [
         { date: '', text: 'how are you', id: 12e1, author: 'Mary ' },
-        { date: '', text: 'asdmkadskmmkdas ', id: 1e21, author: 'you' },
-        { date: '', text: 'look greate ', id: 11233, author: 'mary' },
+        { date: '', text: 'im fine ', id: 1e21, author: 'you' },
+        { date: '', text: 'you look great', id: 11233, author: 'mary' },
       ],
     },
     {

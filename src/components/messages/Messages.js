@@ -15,15 +15,15 @@ class Messages extends React.Component {
 
 
   newMessageToState = (e) => {
-    let m = e.target.value;
-    let ident = +`${Math.floor(Math.random() * 1000)}`;
-    let a = { date: '', text: m, id: ident, author: 'you' };
-
-
-    this.props.changeNewMessage(a);
-
-    this.props.changeNewMessageText(m);
+      let m = e.target.value;
+      this.props.changeNewMessageText(m);
   };
+
+  getDate=()=>{
+      let d = new Date();
+      return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()},   ${d.getHours()}:${d.getMinutes()<10? '0'+d.getMinutes():d.getMinutes()}`
+
+  }
 
   getAnswerFromChak = () => {
     fetch('https://api.chucknorris.io/jokes/random')
@@ -32,7 +32,8 @@ class Messages extends React.Component {
         let ident = +`${Math.floor(Math.random() * 1000)}`;
         let author = this.props.ActiveContact.name;
         let message = data.value;
-        let a = { date: '', text: message, id: ident, author: author };
+        let date = this.getDate();
+        let a = { date: date, text: message, id: ident, author: author };
 
           this.props.addNewMessage( this.props.ActiveContact.name, a);
       });
@@ -40,10 +41,13 @@ class Messages extends React.Component {
 
   sendNewMessage = (e) => {
 
-          e.preventDefault();
-          this.props.addNewMessage( this.props.ActiveContact.name, this.props.newMessage);
-          this.getAnswerFromChak();
-          this.props.changeNewMessageText('');
+      e.preventDefault();
+      let ident = +`${Math.floor(Math.random() * 1000)}`;
+      let date = this.getDate();
+      let a = { date: date, text: this.props.NewMessageText, id: ident, author: 'you' };
+      this.props.addNewMessage( this.props.ActiveContact.name, a);
+      this.getAnswerFromChak();
+      this.props.changeNewMessageText('');
 
   };
 
