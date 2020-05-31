@@ -10,6 +10,7 @@
   padding: 2% 4%;
   background-color: #f8f9fe;
   border-bottom: 1.5px solid #80808070;
+  
 }
 
 .search-wrapper {
@@ -100,6 +101,7 @@
 .last-message-date {
   display: flex;
   justify-content: center;
+  font-weight: 100;
   align-items: start;
   height: 65%;
   font-size: 14.5px;

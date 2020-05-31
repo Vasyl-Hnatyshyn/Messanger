@@ -42,13 +42,17 @@ class Messages extends React.Component {
   sendNewMessage = (e) => {
 
       e.preventDefault();
-      let ident = +`${Math.floor(Math.random() * 1000)}`;
-      let date = this.getDate();
-      let a = { date: date, text: this.props.NewMessageText, id: ident, author: 'you' };
-      this.props.addNewMessage( this.props.ActiveContact.name, a);
-      this.getAnswerFromChak();
-      this.props.changeNewMessageText('');
-
+       if(this.props.NewMessageText=== "" ) {
+         return null
+       }
+       else {
+           let ident = +`${Math.floor(Math.random() * 1000)}`;
+           let date = this.getDate();
+           let a = { date: date, text: this.props.NewMessageText, id: ident, author: 'you' };
+           this.props.addNewMessage( this.props.ActiveContact.name, a);
+           this.getAnswerFromChak();
+           this.props.changeNewMessageText('');
+       }
   };
 
   render() {
