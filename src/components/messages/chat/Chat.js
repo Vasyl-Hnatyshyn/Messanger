@@ -1,9 +1,9 @@
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-function Chat({ activeContact }) {
+function Chat({ activeContact, scrollRef }) {
   return (
-    <Scrollbars style={{ width: '100%', height: '76vh' }}>
+    <Scrollbars ref={scrollRef} style={{ width: '100%', height: '76vh' }}>
       <div className="chat">
         {activeContact.message.map((item) => {
           return (

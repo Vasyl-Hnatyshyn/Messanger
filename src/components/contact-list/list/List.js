@@ -34,10 +34,8 @@ function List({ messageFolder, changeActiveContact, searchText }) {
               <p className="contact-name">{item.name} </p>
               <p className="last-message">{item.message[index].text}</p>
             </div>
-            <div className="last-message-date">{`${month[date.slice(3, 4) - 1]}  ${date.slice(
-              0,
-              2
-            )},  ${'20' + date.slice(5, 7)}`}</div>
+            <div className="last-message-date">{`${month[date.slice(2, 3) - 1]}  ${date.slice(0,1)},
+              ${'20' + date.slice(4, 6)}`}</div>
           </div>
         );
       })}

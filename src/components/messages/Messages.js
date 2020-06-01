@@ -9,6 +9,8 @@ import Chat from './chat/Chat';
 import { changeNewMessage, changeNewMessageText, addNewMessage } from '../../store/actions';
 
 class Messages extends React.Component {
+  scrollRef = React.createRef();
+
   newMessageToState = (e) => {
     const message = e.target.value;
     this.props.changeNewMessageText(message);
@@ -26,6 +28,7 @@ class Messages extends React.Component {
     const date = this.getDate();
     const messageObject = { date, text: message, id, author };
     this.props.addNewMessage(this.props.activeContact.name, messageObject);
+    this.scrollRef.current.scrollToBottom();
   };
 
   getAnswerFromChak = () => {
@@ -68,7 +71,7 @@ class Messages extends React.Component {
               <div className="name"> {activeContact.name} </div>
             </div>
 
-            <Chat activeContact={activeContact} />
+            <Chat activeContact={activeContact} scrollRef={this.scrollRef} />
             <NewMessageForm
               newMessageText={newMessageText}
               sendNewMessage={this.sendNewMessage}
